@@ -54,8 +54,14 @@
         .sticky {
             background: #1a1a1a;
         }
+        .topbar {
+            background: #1a1a1a;
+        }
         #intro {
             background: #fccf2d;
+        }
+        #logos {
+            background: #ffffff;
         }
         #post {
             background: #f0f0f0;
@@ -69,27 +75,56 @@
             clear: both;
             padding:20px; 
         }
+        .boxed {
+            border: 1px solid black;
+        }
+        #twitter-tl, #fb-page{
+            background: #fccf2d;
+            color: black;
+        }
     </style>
 </head>
 
 <body id="top">
-    <div class="topbar sticky" id="main-nav">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="topbar large" id="main-nav">
         <nav class="ink-navigation ink-grid">
             <ul class="menu horizontal black push-center" id="main-nav-site">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="categorias.html">Categorías</a></li>
-                <li><a href="participantes.html">Participantes</a></li>
+                <li><a href="participantes.html">Participantes</a>
+                    <ul class="submenu">
+                        <li><a href="#">Información General</a></li>
+                        <li><a href="#">Localización</a></li>
+                        <li><a href="#">Registro</a></li>
+                        <li><a href="#">Lista de participantes</a></li>
+                    </ul>
+                </li>
                 <li><a href="calendario.html">Calendario</a></li>
-                <li class="heading active"><a href="eventos.html">Eventos</a></li>
                 <li><a href="patrocinantes.html">Patrocinantes</a></li>
+                <li><a href="comite.html">Comité</a></li>
+                <li class="heading active"><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
     </div>
     <div class="content-drawer" id="intro">
         <section class="ink">
             <div class="ink-grid">
-                <div class="xlarge-70 large-70 all-80 align-center push-center">
-                    <img src="img/logo2.png" align="middle">
+                <div class="column-group push-middle">
+                    <div class="xlarge-75 large-75 all-100 align-center push-center quarter-top-space">
+                        <p><img src="img/logo2.png" align="middle"></p>
+                    </div>
+                </div>
+                <div class="xlarge-50 large-50 all-100 align-center push-center quarter-top-space">
+                    <h3> Caracas, 25-28 de Octubre</h3>
                 </div>
             </div>
         </section>
@@ -98,13 +133,77 @@
     <div class="ink-grid" id="post">
         <section class="top-padding vertical-padding clearfix">
             <h1 class="align-center half-bottom-space">
-                Eventos
+                Preguntas Frecuentes
             </h1>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
+
+            <div class="column-group gutters">
+                <div class="xlarge-75 large-75 all-100">
+                    (Tomado de la página de ULABots)
+                    
+                    <p>Está sección de preguntas y respuestas frecuentes, FAQ por sus siglas en inglés, será enriquecida a medida que se reciben preguntas, puede enviarnos sus preguntas a través de nuestro correo electrónico <a href="mailto:USBBots2016@gmail.com">USBBots2016@gmail.com</a>. De antemano nuestro agradecimiento a los que con sus preguntas han ayudado a crear esta página.</p>
+
+                    <p><strong>Participación en la Competencia</strong></p>
+                    <p><strong>P.-</strong> Veo que hubo un proceso de pre-inscripción y Yo no me preinscribí,  si no me preinscribí igual puedo inscribirme y participar en las competencias?</p>
+
+                    <p><span style="color: #99cc00;">R.-</span> Si puedes inscribiste si haberte pre-inscrito, esos datos lo usamos como referencia. Desde ahora te digo que hay cerca de doscientas personas pre-inscritas y por el aforo del lugar de la competencia,  logística y materiales hemos pensado fijar el tope entre 200 y 220 participantes. Los primeros doscientos que se inscriban les garantizamos el cupo con todos los beneficios.</p>
+                    <p><strong>P.-</strong> Para un equipo de tres pérsonas la inscripción antes del 30 de septiembre es de 750 Bs? con la inscripción el equipo puede participar en las tres  categorías sin pagar nada adicional?</p>
+
+                    <p><span style="color: #99cc00;">R.-</span> Correcto, participan con a lo más un robot por categoría.</p>
+
+                    <p><strong>P.- </strong>Los participantes pueden ser profesionales ya egresados? o sólo estudiantes?</p>
+                    <p><span style="color: #99cc00;">R.-</span>Si, es abierto al público en general, en la competencia pasada hubo equipos de estudiantes de Liceos y equipos de Ingenieros y TSU,  aficionados y por su puesto de estudiantes universitarios.</p>
+                    <p><strong>Competencia</strong></p>
+                    <p>P.- Podemos tener patrocinio de por ejemplo tiendas de componentes electrónicos?  Usar sus logos o nombres en los robots o en &#8230;nuestras franelas?</p>
+                    <p><span style="color: #99cc00;">R.-</span> Si, los competidores pueden usar publicidad de sus patrocinadores. En cambio, en el robot la publicidad no debe afectar la competencia, para fotografías puede llevar publicidad, pero en competencia debe seguir el reglamento de la categoría.</p>
+                    <p><strong>P.-</strong> Hablan en el reglamento de baterias de hasta 24V.  pero pudiera darse el<br />
+                    caso de que en el robot se obtengan tensiones mayores (utilizando<br />
+                    reguladores conmutados),  esto está permitido? si lo está hasta que<br />
+                    tensiones se permiten?</p>
+                    <p><span style="color: #99cc00;">R.-</span> Las baterías pueden ser hasta 24V,  el robot  debe estar alimentado sólo de las baterías  y  debe cumplir con el reglamento en cuanto a tamaño y peso.  La circuitería interna es parte de vuestro diseño propuesto y tu principal estartegia .</p>
+                    <p><strong>P.-</strong>  No se acepta ningún tipo de control que no este contenido en el mismo robot,  pero puede haber telemática durante la competencia? o sólo en las pruebas??</p>
+                    <p><span style="color: #99cc00;">R.-</span>Los robots deben ser autónomos, por lo que no se permite interacción a distancia ni en las pruebas ni en la competencia.</p>
+                    <p><strong>P.- U</strong>no de mis compañeros de equipo me lo pregunta, aunque no le dimos mucha importancia, aunque si es un estímulo adicional: cuales son los premios?</p>
+                    <p><strong>R.- </strong>Esta competencia es una Competencia Nacional, y siempre se ha caracterizado por su filosofia altruista, bajos costos de inscripción y el premio es el reconocimiento por parte de AVEROD.  En esta edición  hasta este momento sólo tenemos certificados a las tres primeros puestos por categoría. El precio tan bajo de la inscripción no alcanza para gastos de la competencia pero si incentiva a que participen  una gran cantidad de personas,  ya que uno de los  objetivos es promover el uso de la robótica en el país. Sin embargo,  algunos patrocinantes han ofrecido componentes como premios,  pero aún no hay nada en concreto.</p>
+
+                    <p><strong>Sobre la Ciudad de Mérida </strong></p>
+                    <p><strong>P.- </strong>Tengo muchísimos años que no voy a Mérida, como está el transporte público? hay transporte público desde el centro de Mérida hacia la Facultad de Ingeniería?  incluso el Domingo? tienen idea de a partir de que hora y hasta que hora funciona el transporte público?  sería genial si así como han publicado posibles rutas desde el Hotel Park (por cierto muchas gracias por esto!! así pueden  los mapas de Mérida con las posadas y Hoteles céntricos!) hasta la facultad, también nos indicaran sobre el transporte público y las paradas desde el centro hasta la Facultad.</p>
+                    <p><span style="color: #99cc00;">R.-</span>Hay paradas de transporte públicos y lineas de taxis en el Núcleo de la Hechicera. Adicionalmente habrá servicios de buses gratuitos a principio de la mañana y al final de la noche que van desde el centro de Mérida hasta el lugar de la competencia. En la competencia pasada varios grupos pidieron un permisos especial para quedarse después de las 8 pm y hacer pruebas. El permiso se concedió pero se debe tramitar ante Vigilancia de la ULA y contar con el aval de esa dependencia. Para USBBots 2016 las normas de seguridad de la USB se han incrementado y no sabemos si se permita trabajar después de la 8 pm en las arenas de pruebas. La Facultad queda en la zona más alta de Mérida por lo que la temperatura puede bajar un poco en la noche.</p>
+                    <p>Con respecto a mapas y sitios de interés, en los próximos días se pondrá información en este sitio.</p>
+                    <p><strong>Otros</strong></p>
+
+                    <p><strong>P.- Tengo un robot me gustaria saber si podemos llevarlos para exhibición .</strong></p>
+                    <p><span style="color: #99cc00;">R.- </span>Para evaluar la participación en la exhibición requerimos<span style="color: #444444;"> conocer mas de robot, si estás interesado por favor enviar a nuestra cuenta de correo </span><a href="mailto:USBBots2016@gmail.com">USBBots2016@gmail.com</a><span style="color: #444444;"> un resumen de tu robot y algunas fotografías.</span></p>
+                </div>
+                <div class="xlarge-25 large-25 all-100 align-center">
+                    <div id="tw-container">
+                        <p class="align-center" id="twitter-tl">Twitter</p>
+                        <a class="twitter-timeline" href="https://twitter.com/USBBots" data-widget-id="723542167130652672" data-chrome="noheader nofooter transparent">Tweets by @USBBots</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </div>
+
+                    <div class="half-top-space" id="fb-container">
+                        <p class="align-center half-bottom-space" id="fb-page">Facebook</p>  
+                        <div class="fb-page" data-href="https://www.facebook.com/mecatronicaUSB/" data-tabs="timeline" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/mecatronicaUSB/"><a href="https://www.facebook.com/mecatronicaUSB/">Grupo de Investigación y Desarrollo en Mecatrónica GID38</a></blockquote></div></div>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="content-drawer" id="logos">
+        <section class="ink">
+            <div class="ink-grid">
+                <div class="column-group push-middle">
+                    <div class="xlarge-30 large-30 all-30 align-center push-center quarter-top-space">
+                        <p><img src="img/averod.jpg" align="middle"></p>
+                    </div>
+                    <div class="xlarge-30 large-30 all-30 align-center push-center quarter-top-space">
+                        <p><img src="img/logoUSB.png" align="middle"></p>
+                    </div>
+                    <div class="xlarge-30 large-30 all-30 align-center push-center quarter-top-space">
+                        <p><img src="img/logo_mecatronica_alfa.png" align="middle"></p>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
     
@@ -114,9 +213,10 @@
             <div class="page-footer-social-media">
                 <h2><font color="white">Redes sociales</font></h2>   
                 <a href="https://www.facebook.com/mecatronicaUSB" target="_blank"><i class="fa fa-facebook-square fa-2x" style="color:white"></i></a>
-                <a href="https://twitter.com/mecatronicaUSB" target="_blank"><i class="fa fa-twitter-square fa-2x"  style="color:white"></i></a>
-            </div>                       
-            <div>
+                <a href="https://twitter.com/USBBots" target="_blank"><i class="fa fa-twitter-square fa-2x"  style="color:white"></i></a>
+                <a href="mailto:USBBots2016@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x" style="color:white"></i></a>   
+            </div>                        
+            <div class="quarter-top-space">
                 <p class="note">Copyright 2016 - Grupo de Mecatrónica, Universidad Simón Bolívar.</p>
             </div>
         </div>
