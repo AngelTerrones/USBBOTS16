@@ -54,8 +54,14 @@
         .sticky {
             background: #1a1a1a;
         }
+        .topbar {
+            background: #1a1a1a;
+        }
         #intro {
             background: #fccf2d;
+        }
+        #logos {
+            background: #ffffff;
         }
         #post {
             background: #f0f0f0;
@@ -69,27 +75,49 @@
             clear: both;
             padding:20px; 
         }
+        .boxed {
+            border: 1px solid black;
+        }
+        #twitter-tl, #fb-page{
+            background: #fccf2d;
+            color: black;
+        }
     </style>
 </head>
 
 <body id="top">
-    <div class="topbar sticky" id="main-nav">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="topbar large" id="main-nav">
         <nav class="ink-navigation ink-grid">
             <ul class="menu horizontal black push-center" id="main-nav-site">
                 <li><a href="index.html">Inicio</a></li>
                 <li class="heading active"><a href="categorias.html">Categorías</a></li>
                 <li><a href="participantes.html">Participantes</a></li>
                 <li><a href="calendario.html">Calendario</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
                 <li><a href="patrocinantes.html">Patrocinantes</a></li>
+                <li><a href="comite.html">Comité</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
     </div>
     <div class="content-drawer" id="intro">
         <section class="ink">
             <div class="ink-grid">
-                <div class="xlarge-70 large-70 all-80 align-center push-center">
-                    <img src="img/logo2.png" align="middle">
+                <div class="column-group push-middle">
+                    <div class="xlarge-75 large-75 all-100 align-center push-center quarter-top-space">
+                        <p><img src="img/logo2.png" align="middle"></p>
+                    </div>
+                </div>
+                <div class="xlarge-50 large-50 all-100 align-center push-center quarter-top-space">
+                    <h3> Caracas, 25-28 de Octubre</h3>
                 </div>
             </div>
         </section>
@@ -100,11 +128,83 @@
             <h1 class="align-center half-bottom-space">
                 Categorías
             </h1>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
-            <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
+
+            <div class="column-group gutters">
+                <div class="xlarge-75 large-75 all-100">
+                    <div class="quarter-top-space">
+                        <p><b>¡Bienvenido!</b> En esta sección encontrará los reglamentos de la VI Competencia Nacional de Robótica.</p>
+
+                        <p><a href="#usbbots-reglamento-general">Reglamento general de USBBots</a></p>
+
+                        <p><h4>Categorías:</h4></p>
+                        <ul>
+                            <li><a href="#usbbots-reglamento-velocista">Velocista</a></li>
+                            <li><a href="#usbbots-reglamento-sumo">Sumo</a></li>
+                            <li><a href="#usbbots-reglamento-laberinto">Laberinto</a></li>
+                            <li><a href="#usbbots-reglamento-desafio">Desafío</a></li>
+                        </ul>
+                        
+                        <hr>
+
+                        <h1 id="usbbots-reglamento-general">Reglamento General USBBots</h1>
+                        <p><a href="">Obtener reglamento en PDF</a></p>
+                        <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
+                        
+                        <hr>
+
+                        <h1 id="usbbots-reglamento-velocista">Categoría Velocista: Reglamento</h1>
+                        <p><a href="">Obtener reglamento en PDF</a></p>
+                        <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
+                        
+                        <hr>
+
+                        <h1 id="usbbots-reglamento-sumo">Categoría Sumo: Reglamento</h1>
+                        <p><a href="">Obtener reglamento en PDF</a></p>
+                        <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
+                        
+                        <hr>
+
+                        <h1 id="usbbots-reglamento-laberinto">Categoría Laberinto: Reglamento</h1>
+                        <p><a href="">Obtener reglamento en PDF</a></p>
+                        <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
+                        
+                        <hr>
+
+                        <h1 id="usbbots-reglamento-desafio">Categoría Desafío: Reglamento</h1>
+                        <p><a href="">Obtener reglamento en PDF</a></p>
+                        <p>And though of all men the moody captain of the Pequod was the least given to that sort of shallowest assumption; and though the only homage he ever exacted, was implicit, instantaneous obedience; though he required no man to remove the shoes from his feet ere stepping upon the quarter-deck; and though there were times when, owing to peculiar circumstances connected with events hereafter to be detailed, he addressed them in unusual terms, whether of condescension or IN TERROREM, or otherwise; yet even Captain Ahab was by no means unobservant of the paramount forms and usages of the sea.</p>
+                    </div>
+                </div>
+                <div class="xlarge-25 large-25 all-100 align-center">
+                    <div id="tw-container">
+                        <p class="align-center" id="twitter-tl">Twitter</p>
+                        <a class="twitter-timeline" href="https://twitter.com/USBBots" data-widget-id="723542167130652672" data-chrome="noheader nofooter transparent">Tweets by @USBBots</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </div>
+
+                    <div class="half-top-space" id="fb-container">
+                        <p class="align-center half-bottom-space" id="fb-page">Facebook</p>  
+                        <div class="fb-page" data-href="https://www.facebook.com/mecatronicaUSB/" data-tabs="timeline" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/mecatronicaUSB/"><a href="https://www.facebook.com/mecatronicaUSB/">Grupo de Investigación y Desarrollo en Mecatrónica GID38</a></blockquote></div></div>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="content-drawer" id="logos">
+        <section class="ink">
+            <div class="ink-grid">
+                <div class="column-group push-middle">
+                    <div class="xlarge-30 large-30 all-30 align-center push-center quarter-top-space">
+                        <p><img src="img/averod.jpg" align="middle"></p>
+                    </div>
+                    <div class="xlarge-30 large-30 all-30 align-center push-center quarter-top-space">
+                        <p><img src="img/logoUSB.png" align="middle"></p>
+                    </div>
+                    <div class="xlarge-30 large-30 all-30 align-center push-center quarter-top-space">
+                        <p><img src="img/logo_mecatronica_alfa.png" align="middle"></p>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
     
@@ -114,9 +214,10 @@
             <div class="page-footer-social-media">
                 <h2><font color="white">Redes sociales</font></h2>   
                 <a href="https://www.facebook.com/mecatronicaUSB" target="_blank"><i class="fa fa-facebook-square fa-2x" style="color:white"></i></a>
-                <a href="https://twitter.com/mecatronicaUSB" target="_blank"><i class="fa fa-twitter-square fa-2x"  style="color:white"></i></a>
-            </div>                       
-            <div>
+                <a href="https://twitter.com/USBBots" target="_blank"><i class="fa fa-twitter-square fa-2x"  style="color:white"></i></a>
+                <a href="mailto:USBBots2016@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x" style="color:white"></i></a>   
+            </div>                        
+            <div class="quarter-top-space">
                 <p class="note">Copyright 2016 - Grupo de Mecatrónica, Universidad Simón Bolívar.</p>
             </div>
         </div>
