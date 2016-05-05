@@ -44,7 +44,7 @@
     <script type="text/javascript" src="js/holder.js"></script>
     <script type="text/javascript" src="js/ink-all.min.js"></script>
     <script type="text/javascript" src="js/autoload.js"></script>
-
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <style type="text/css">
         html, body {
@@ -82,6 +82,23 @@
             background: #fccf2d;
             color: black;
         }
+        a.back-to-top {
+            display: none;
+            width: 60px;
+            height: 60px;
+            text-indent: -9999px;
+            position: fixed;
+            z-index: 999;
+            right: 20px;
+            bottom: 20px;
+            background: #fccf2d url("img/up-arrow.png") no-repeat center 43%;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+        }
+        a:hover.back-to-top {
+            background-color: #000;
+	}
     </style>
 </head>
 
@@ -154,31 +171,31 @@
                         <hr>
 
                         <h1 id="usbbots-reglamento-general">Reglamento General USBBots</h1>
-                        <p><a href="#">Obtener reglamento en PDF</a></p>
+                        <p><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Obtener reglamento en PDF</a></p>
                         <p>Este documento contiene los reglamentos generales de las cuatro competencias a llevarse a cabo.</p>
                         
                         <hr>
 
                         <h1 id="usbbots-reglamento-velocista">Categoría Velocista: Reglamento</h1>
-                        <p><a href="reglamentos/Velocista.pdf">Obtener reglamento en PDF</a></p>
+                        <p><a href="reglamentos/Velocista.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Obtener reglamento en PDF</a></p>
                         <p>En esta categoría, cada equipo participante debe diseñar y construir un robot seguidor de línea que recorra en forma autónoma una pista determinada en el menor tiempo posible. La pista estará formada por una línea negra sobre fondo blanco. En la competencia de este año, se agregará una dificultad extra: la presencia de bifurcacions en la pista. Los caminos resultantes de la bifurcación pueden tener recorridos de diferente tamaño, por lo cual se indicará el recorrido más corto con una marca.</p>
                         
                         <hr>
 
                         <h1 id="usbbots-reglamento-sumo">Categoría Sumo: Reglamento</h1>
-                        <p><a href="reglamentos/Sumo.pdf">Obtener reglamento en PDF</a></p>
+                        <p><a href="reglamentos/Sumo.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Obtener reglamento en PDF</a></p>
                         <p>En esta categoría, el equipo participante debe diseñar y construir un robot autónomo capaz de empujar a su contricante hasta sacarlo de la arena de competencia.</p>
                         
                         <hr>
 
                         <h1 id="usbbots-reglamento-laberinto">Categoría Laberinto: Reglamento</h1>
-                        <p><a href="reglamentos/Laberinto.pdf">Obtener reglamento en PDF</a></p>
+                        <p><a href="reglamentos/Laberinto.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Obtener reglamento en PDF</a></p>
                         <p>En esta categoría, el equipo participante debe diseñar y construir un robot autónomo capaz de navegar en un laberinto de dimensión constante, en el menor tiempo posible.</p>
                         
                         <hr>
 
                         <h1 id="usbbots-reglamento-desafio">Categoría Desafío: Reglamento</h1>
-                        <p><a href="reglamentos/Desafio.pdf">Obtener reglamento en PDF</a></p>
+                        <p><a href="reglamentos/Desafio.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>    Obtener reglamento en PDF</a></p>
                         <p>En el fondo de una espacio de agua somero se encuentran los restos de un buque que naufragó contra un arrecife. La carga del buque consistía en material industrial de contenido radioactivo que no puede ser recuperado por un equipo de buzos. Dicho material está contenido en cilindros que quedaron dispersos por el área del naufragio. Dadas las condiciones de corriente, oleaje y viento, la operación de rescate no puede durar mas de 10 minutos.
                         La Asociación Venezolana de Robótica desea contratar a un equipo que sea capaz de recuperar dichos cilindros de la zona del naufragio, utilizando para ello tecnología robótica.</p>
                     </div>
@@ -197,7 +214,6 @@
             </div>
         </section>
     </div>
-
     <div class="content-drawer" id="logos">
         <section class="ink">
             <div class="ink-grid">
@@ -215,7 +231,6 @@
             </div>
         </section>
     </div>
-    
     <div class="push"></div>
     <footer class="clearfix" id="footer">
         <div class="ink-grid">
@@ -230,6 +245,28 @@
             </div>
         </div>
     </footer>
+    
+    <script type="text/javascript">
+    // create the back to top button
+    $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+    var amountScrolled = 300;
+
+    $(window).scroll(function() {
+            if ( $(window).scrollTop() > amountScrolled ) {
+                    $('a.back-to-top').fadeIn('slow');
+            } else {
+                    $('a.back-to-top').fadeOut('slow');
+            }
+    });
+
+    $('a.back-to-top, a.simple-back-to-top').click(function() {
+            $('html, body').animate({
+                    scrollTop: 0
+            }, 700);
+            return false;
+    });
+    </script>
 </body>
 
 </html>

@@ -44,7 +44,7 @@
     <script type="text/javascript" src="js/holder.js"></script>
     <script type="text/javascript" src="js/ink-all.min.js"></script>
     <script type="text/javascript" src="js/autoload.js"></script>
-
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <style type="text/css">
         html, body {
@@ -82,6 +82,23 @@
             background: #fccf2d;
             color: black;
         }
+        a.back-to-top {
+            display: none;
+            width: 60px;
+            height: 60px;
+            text-indent: -9999px;
+            position: fixed;
+            z-index: 999;
+            right: 20px;
+            bottom: 20px;
+            background: #fccf2d url("img/up-arrow.png") no-repeat center 43%;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+        }
+        a:hover.back-to-top {
+            background-color: #000;
+	}
     </style>
 </head>
 
@@ -145,44 +162,45 @@
                     De antemano nuestro agradecimiento a los que con sus preguntas han ayudado a crear esta página.</p>
 
                     <p><strong>Participación en la Competencia</strong></p>
-                    <p><strong>P.-</strong> Veo que hubo un proceso de pre-inscripción y yo no me preinscribí. 
-                    Si no me preinscribí ¿igual puedo inscribirme y participar en las competencias?</p>
-                    <p><span style="color: #99cc00;">R.-</span> Si puedes inscribiste sin haberte pre-inscrito.</p>
+                    <p><strong>P.-</strong> Veo que hubo un proceso de pre-inscripción y yo no me pre-inscribí.
+                    Si no me pre-inscribí, ¿igual puedo inscribirme y participar en las competencias?</p>
+                    <p><span style="color: #99cc00;">R.-</span> Sí, puedes inscribirte sin haberte pre-inscrito. 
+                    La pre-inscripción nos sirve para estimar el número de participantes.</p>
 
-                    <p><strong>P.-</strong> ¿Para un equipo de cuatro personas la inscripción antes del 30 de septiembre es de 4000 Bs? 
+                    <p><strong>P.-</strong> Para un equipo de cuatro personas la inscripción antes del 30 de septiembre es de Bs. 4000.
                     ¿Con la inscripción el equipo puede participar en las cuatro categorías sin pagar nada adicional?</p>
-                    <p><span style="color: #99cc00;">R.-</span> No. La inscripción es por equipo, y por categoría. Por lo tanto, si un equipo 
-                    desea participar en las cuatro categorías, debe pagar la inscripción por cada una, lo que le permite participar con un solo 
-                    robot por categoría.</p>
+                    <p><span style="color: #99cc00;">R.-</span> No. La cuota de inscripción es por equipo, categoría y robot. Por lo tanto, si un equipo 
+                    desea participar en las cuatro categorías o con varios robots en una misma, debe pagar la inscripción por cada categoría y por
+                    cada robot.</p>
 
-                    <p><strong>P.-</strong> ¿Los participantes pueden ser profesionales ya egresados? o sólo estudiantes?</p>
-                    <p><span style="color: #99cc00;">R.-</span>La categoría está abierta al público en general, por lo que pueden participar estudiantes
-                    de liceo, universitarios, e incluso profesionales ya egresados.</p>
+                    <p><strong>P.-</strong> ¿Los participantes pueden ser profesionales ya egresados o sólo estudiantes?</p>
+                    <p><span style="color: #99cc00;">R.-</span>Las categorías están abiertas al público en general, por lo que pueden participar estudiantes
+                    de liceo, universitarios e incluso profesionales ya egresados.</p>
 
                     <p><strong>Competencia</strong></p>
                     <p><strong>P.-</strong> ¿Podemos tener patrocinio de, por ejemplo, tiendas de componentes electrónicos? ¿Usar sus logos o 
                     nombres en los robots o en nuestras franelas?</p>
-                    <p><span style="color: #99cc00;">R.-</span> Los competidores pueden usar publicidad de sus patrocinadores en sus franelas sin problemas. 
-                    En cambio, en el robot la publicidad no debe afectar la competencia, para fotografías puede llevar publicidad, pero en competencia deberán
+                    <p><span style="color: #99cc00;">R.-</span> Los competidores pueden usar publicidad de sus patrocinadores en sus franelas sin problemas.
+                    En cambio, en el robot la publicidad no debe afectar la competencia: para fotografías puede llevar publicidad pero en competencia deberán
                     seguir el reglamento de la categoría correspondiente.</p>
 
-                    <p><strong>P.-</strong> No se acepta ningún tipo de control que no este contenido en el mismo robot,  
-                    pero ¿puede haber telemática durante la competencia? ¿o sólo en las pruebas?</p>
+                    <p><strong>P.-</strong> No se acepta ningún tipo de control que no esté contenido en el robot
+                    pero ¿puede haber telemática durante la competencia o sólo en las pruebas?</p>
                     <p><span style="color: #99cc00;">R.-</span>Los robots deben ser autónomos, por lo que no se permite 
-                    interacción a distancia ni en las pruebas ni en la competencia, salvo que la competencia lo permita, como en el caso de la categoría de 
+                    interacción a distancia ni en las pruebas ni en la competencia, salvo que la competencia lo permita como en el caso de la categoría de 
                     desafío.</p>
 
                     <p><strong>P.-</strong> ¿Cuáles son los premios?</p>
-                    <p><span style="color: #99cc00;">R.-</span> Esta competencia es una Competencia Nacional, y siempre 
-                    se ha caracterizado por su filosofia altruista, bajos costos de inscripción y el premio es el 
-                    reconocimiento por parte de AVEROD.  En esta edición  hasta este momento sólo tenemos certificados 
-                    a las tres primeros puestos por categoría. El precio tan bajo de la inscripción no alcanza para gastos 
-                    de la competencia pero si incentiva a que participen  una gran cantidad de personas,  ya que uno de los  
-                    objetivos es promover el uso de la robótica en el país. Sin embargo, algunos patrocinantes han ofrecido 
-                    componentes como premios, pero aún no hay nada en concreto.</p>
+                    <p><span style="color: #99cc00;">R.-</span> En esta edición  hasta este momento sólo tenemos certificados
+                    a las tres primeros puestos por categoría. El precio tan bajo de la inscripción no alcanza para gastos
+                    de la competencia pero sí incentiva a que participen  una gran cantidad de personas,  ya que uno de los
+                    objetivos es promover el uso de la robótica en el país.</p>
 
-                    <p><strong>P.-</strong> Tengo un robot me gustaria saber si podemos llevarlos para exhibición.</p>
-                    <p><span style="color: #99cc00;">R.- </span>Para evaluar la participación en la exhibición requerimos<span style="color: #444444;"> conocer mas de robot, si estás interesado por favor enviar a nuestra cuenta de correo </span><a href="mailto:USBBots2016@gmail.com">USBBots2016@gmail.com</a><span style="color: #444444;"> un resumen de tu robot y algunas fotografías.</span></p>
+                    <p><strong>P.-</strong> Tengo un robot y me gustaría saber si podemos llevarlos para exhibición.</p>
+                    <p><span style="color: #99cc00;">R.- </span>Para evaluar la participación en la exhibición requerimos conocer
+                    más de tu robot. Si estás interesado por favor envía a nuestra cuenta de correo 
+                    </span><a href="mailto:USBBots2016@gmail.com">USBBots2016@gmail.com</a><span style="color: #444444;"> un resumen de tu robot 
+                    y algunas fotografías.</span></p>
                 </div>
                 <div class="xlarge-25 large-25 all-100 align-center">
                     <div id="tw-container">
@@ -231,6 +249,28 @@
             </div>
         </div>
     </footer>
+    
+    <script type="text/javascript">
+    // create the back to top button
+    $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+    var amountScrolled = 300;
+
+    $(window).scroll(function() {
+            if ( $(window).scrollTop() > amountScrolled ) {
+                    $('a.back-to-top').fadeIn('slow');
+            } else {
+                    $('a.back-to-top').fadeOut('slow');
+            }
+    });
+
+    $('a.back-to-top, a.simple-back-to-top').click(function() {
+            $('html, body').animate({
+                    scrollTop: 0
+            }, 700);
+            return false;
+    });
+    </script>
 </body>
 
 </html>

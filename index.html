@@ -44,7 +44,7 @@
     <script type="text/javascript" src="js/holder.js"></script>
     <script type="text/javascript" src="js/ink-all.min.js"></script>
     <script type="text/javascript" src="js/autoload.js"></script>
-
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <style type="text/css">
         html, body {
@@ -82,6 +82,23 @@
             background: #fccf2d;
             color: black;
         }
+        a.back-to-top {
+            display: none;
+            width: 60px;
+            height: 60px;
+            text-indent: -9999px;
+            position: fixed;
+            z-index: 999;
+            right: 20px;
+            bottom: 20px;
+            background: #fccf2d url("img/up-arrow.png") no-repeat center 43%;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+        }
+        a:hover.back-to-top {
+            background-color: #000;
+	}
     </style>
 </head>
 
@@ -208,6 +225,28 @@
             </div>
         </div>
     </footer>
+    
+    <script type="text/javascript">
+    // create the back to top button
+    $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+    var amountScrolled = 300;
+
+    $(window).scroll(function() {
+            if ( $(window).scrollTop() > amountScrolled ) {
+                    $('a.back-to-top').fadeIn('slow');
+            } else {
+                    $('a.back-to-top').fadeOut('slow');
+            }
+    });
+
+    $('a.back-to-top, a.simple-back-to-top').click(function() {
+            $('html, body').animate({
+                    scrollTop: 0
+            }, 700);
+            return false;
+    });
+    </script>
 </body>
 
 </html>
