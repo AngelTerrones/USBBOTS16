@@ -73,7 +73,7 @@
             margin-right: auto;
             color: white;
             clear: both;
-            padding:20px; 
+            padding:20px;
         }
         .boxed {
             border: 1px solid black;
@@ -98,7 +98,7 @@
         }
         a:hover.back-to-top {
             background-color: #000;
-	}
+    }
     </style>
 </head>
 
@@ -121,7 +121,7 @@
                     <ul class="submenu">
                         <li><a href="informacion-general.html">Información General</a></li>
                         <li><a href="localizacion.html">Localización</a></li>
-                        <li><a href="registro.html">Registro</a></li>
+                        <li><a href="registro.php">Registro</a></li>
                         <li><a href="participantes.html">Lista de participantes</a></li>
                     </ul>
                 </li>
@@ -150,16 +150,44 @@
     <div class="ink-grid" id="post">
         <section class="top-padding vertical-padding clearfix">
             <h1 class="align-center half-bottom-space">
-                Información de registro
+                Registro de participantes
             </h1>
 
             <div class="column-group gutters">
-                <div class="xlarge-75 large-75 all-100">
-                    <div class="quarter-top-space">
-                        <p>A su debido tiempo, en esta página se publicará el procedimiento para que cada grupo que desee participar
-                        realice su pre-inscripción e inscripción al evento.</p>
-                    </div>
-                </div>
+               <?php
+                $success = $_GET['msg'];
+                if (isset($success)){
+                    $success = $_GET['msg'] == '1' ? true : false;
+                    if($success){
+                        ?>
+                            <div class="xlarge-75 large-75 all-100">
+                                <div class="quarter-top-space">
+                                    <p>¡Registro finalizado! Al correo indicado les llegará un mensaje de confirmación de que su inscripción
+                                    inscripción ha sido recibida.</p>
+                                    <p>¡Nos vemos en Noviembre!</p>
+                                </div>
+                            </div>
+                        <?php
+                    }else{
+                        ?>
+                            <div class="xlarge-75 large-75 all-100">
+                                <div class="quarter-top-space">
+                                    <p>Ha ocurrido un error con el registro. Por favor, inténtelo más tarde, o contáctenos a <a href="mailto:USBBots2016@gmail.com">USBBots2016@gmail.com</a>.</p>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                }else{
+                    ?>
+                    <script language="javascript">
+                        <!-- code for my StatScript here -->
+                        window.location='registro.php';
+                    </script>
+                    <?php
+                }
+                ?>
+
+
                 <div class="xlarge-25 large-25 all-100 align-center">
                     <div id="tw-container">
                         <p class="align-center" id="twitter-tl">Twitter</p>
@@ -167,9 +195,9 @@
                     </div>
 
                     <div class="half-top-space" id="fb-container">
-                        <p class="align-center half-bottom-space" id="fb-page">Facebook</p>  
+                        <p class="align-center half-bottom-space" id="fb-page">Facebook</p>
                         <div class="fb-page" data-href="https://www.facebook.com/mecatronicaUSB/" data-tabs="timeline" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/mecatronicaUSB/"><a href="https://www.facebook.com/mecatronicaUSB/">Grupo de Investigación y Desarrollo en Mecatrónica GID38</a></blockquote></div></div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </section>
@@ -192,22 +220,22 @@
             </div>
         </section>
     </div>
-    
+
     <div class="push"></div>
     <footer class="clearfix" id="footer">
         <div class="ink-grid">
             <div class="page-footer-social-media">
-                <h2><font color="white">Redes sociales</font></h2>   
+                <h2><font color="white">Redes sociales</font></h2>
                 <a href="https://www.facebook.com/mecatronicaUSB" target="_blank"><i class="fa fa-facebook-square fa-2x" style="color:white"></i></a>
                 <a href="https://twitter.com/USBBots" target="_blank"><i class="fa fa-twitter-square fa-2x"  style="color:white"></i></a>
-                <a href="mailto:USBBots2016@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x" style="color:white"></i></a>   
-            </div>                        
+                <a href="mailto:USBBots2016@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x" style="color:white"></i></a>
+            </div>
             <div class="quarter-top-space">
                 <p class="note">Copyright 2016 - Grupo de Mecatrónica, Universidad Simón Bolívar.</p>
             </div>
         </div>
     </footer>
-    
+
     <script type="text/javascript">
     // create the back to top button
     $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
