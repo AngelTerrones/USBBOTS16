@@ -1,22 +1,23 @@
 <?php
 if(isset($_POST['email'])) {
+    require 'PHPMailerAutoload.php';
 
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "angelterrones@gmail.com";
-    $email_subject = "Registro equipo USBBots 2016";
+    $mail = new PHPMailer();
+    $mail->CharSet = 'UTF-8';
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true;
+    $mail->Host = "smtp.postmarkapp.com";
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'tls';
+    $mail->Username = "4f033f73-497f-4de3-8070-964cbacf59e2";
+    $mail->Password = "4f033f73-497f-4de3-8070-964cbacf59e2";
 
     function died($error) {
-
         // your error code can go here
-
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-
         echo "These errors appear below.<br /><br />";
-
         echo $error."<br /><br />";
-
         echo "Please go back and fix these errors.<br /><br />";
-
         die();
     }
 
@@ -43,45 +44,50 @@ if(isset($_POST['email'])) {
     $member3_id = $_POST['ID3']; //not required
     $member4_name = $_POST['name4']; //not required
     $member4_id = $_POST['ID4']; //not required
-    $email_from = $_POST['email']; // required
+    $email_to = $_POST['email']; // required
     $telephone = $_POST['phone']; // required
 
-    $email_message = "**Mensaje generado en forma automática.**\n\nDatos del equipo registrado:\n\n";
+    $email_message = "**Mensaje generado en forma automática.**<br /><br />Datos del equipo registrado:<br /><br />";
 
     function clean_string($string) {
       $bad = array("content-type","bcc:","to:","cc:","href");
       return str_replace($bad,"",$string);
     }
 
-    $email_message .= "Nombre equipo: ".clean_string($team_name)."\n";
-    $email_message .= "Universidad/centro: ".clean_string($university_name)."\n";
-    $email_message .= "Email: ".clean_string($email_from)."\n";
-    $email_message .= "Teléfono: ".clean_string($telephone)."\n";
-    $email_message .= "Categoría a participar: ".clean_string($categoria)."\n";
+    $email_message .= "Nombre equipo: ".clean_string($team_name)."<br />";
+    $email_message .= "Universidad/centro: ".clean_string($university_name)."<br />";
+    $email_message .= "Email: ".clean_string($email_to)."<br />";
+    $email_message .= "Teléfono: ".clean_string($telephone)."<br />";
+    $email_message .= "Categoría a participar: ".clean_string($categoria)."<br />";
 
-    $email_message .= "Participante 1: ".clean_string($member1_name)." Cédula: ".clean_string($member1_id)."\n";
+    $email_message .= "Participante 1: ".clean_string($member1_name)." Cédula: ".clean_string($member1_id)."<br />";
     if(strlen($member2_name) > 0){
-      $email_message .= "Participante 2: ".clean_string($member2_name)." Cédula: ".clean_string($member2_id)."\n";
+      $email_message .= "Participante 2: ".clean_string($member2_name)." Cédula: ".clean_string($member2_id)."<br />";
     }
     if(strlen($member3_name) > 0){
-      $email_message .= "Participante 3: ".clean_string($member3_name)." Cédula: ".clean_string($member3_id)."\n";
+      $email_message .= "Participante 3: ".clean_string($member3_name)." Cédula: ".clean_string($member3_id)."<br />";
     }
     if(strlen($member4_name) > 0){
-      $email_message .= "Participante 4: ".clean_string($member4_name)." Cédula: ".clean_string($member4_id)."\n";
+      $email_message .= "Participante 4: ".clean_string($member4_name)." Cédula: ".clean_string($member4_id)."<br />";
     }
 
-    // create email headers
+    // EDIT THE 2 LINES BELOW AS REQUIRED
+    $email_from = "usbbots2016@gmail.com";
 
-    $headers = 'From: '.$email_from."\r\n".
+    $mail->setFrom("aterrones@usb.ve");
+    $mail->addReplyTo($email_from, "VI Competencia Nacional de Robótica USBBots");
+    $mail->addCC($email_to);
+    $mail->addBCC($email_from);
 
-    'CC: '.$email_from."\r\n".
-    'Reply-To: '.$email_from."\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+    $mail->Subject = "Registro equipo USBBots 2016";
+    $mail->Body = $email_message;
+    $mail->AltBody = $email_message;
+    $mail->isHTML(false);
 
-    if(mail($email_to, $email_subject, $email_message, $headers)){
+    if($mail->Send()){
       $success = true;
     }else{
-      $success = false;
+      $success = $mail->ErrorInfo;
     }
 
     header('Location:registro_fin.php?msg='.$success);
