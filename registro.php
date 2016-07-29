@@ -24,7 +24,9 @@ if(isset($_POST['email'])) {
     // validation expected data exists
 
     if(!isset($_POST['nombre_equipo']) ||
-        //!isset($_POST['universidad']) ||
+        !isset($_POST['nombre_robot']) ||
+        !isset($_POST['universidad']) ||
+        !isset($_POST['categoria']) ||
         !isset($_POST['name1']) ||
         !isset($_POST['ID1']) ||
         !isset($_POST['email']) ||
@@ -34,8 +36,11 @@ if(isset($_POST['email'])) {
     }
 
     $team_name = $_POST['nombre_equipo']; // required
+    $nombre_robot = $_POST['nombre_robot']; // required
     $university_name = $_POST['universidad']; // not required
     $categoria = $_POST['categoria'];
+    $email_to = $_POST['email']; // required
+    $telephone = $_POST['phone']; // required
     $member1_name = $_POST['name1']; //required
     $member1_id = $_POST['ID1']; //required
     $member2_name = $_POST['name2']; //not required
@@ -44,16 +49,21 @@ if(isset($_POST['email'])) {
     $member3_id = $_POST['ID3']; //not required
     $member4_name = $_POST['name4']; //not required
     $member4_id = $_POST['ID4']; //not required
-    $email_to = $_POST['email']; // required
-    $telephone = $_POST['phone']; // required
 
-    $email_message = "**Mensaje generado en forma automática.**<br /><br />Datos del equipo registrado:<br /><br />";
+    $id_pago = $_POST['comprobante-pago']; //not required
+    $fecha_pago = $_POST['fecha-pago']; //not required
+    $monto_pago = $_POST['monto-pago']; //not required
+
+    $email_message = "**Mensaje generado en forma automática.**<br /><br />
+    Gracias por participar en la VI Competencia Nacional de Robótica.<br />
+    Su inscripción será confirmada una vez de haga la verificación del pago realizado.<br /><br />";
 
     function clean_string($string) {
       $bad = array("content-type","bcc:","to:","cc:","href");
       return str_replace($bad,"",$string);
     }
 
+    $email_message .= "Información del equipo:<br />";
     $email_message .= "Nombre equipo: ".clean_string($team_name)."<br />";
     $email_message .= "Universidad/centro: ".clean_string($university_name)."<br />";
     $email_message .= "Email: ".clean_string($email_to)."<br />";
@@ -70,6 +80,11 @@ if(isset($_POST['email'])) {
     if(strlen($member4_name) > 0){
       $email_message .= "Participante 4: ".clean_string($member4_name)." Cédula: ".clean_string($member4_id)."<br />";
     }
+
+    $email_message .= "<br />Información de pago:<br />";
+    $email_message .= "Comprobante de pago: ".clean_string($id_pago)."<br />";
+    $email_message .= "Fecha de pago: ".clean_string($fecha_pago)."<br />";
+    $email_message .= "Monto de pago: ".clean_string($monto_pago)."<br />";
 
     // EDIT THE 2 LINES BELOW AS REQUIRED
     $email_from = "usbbots2016@gmail.com";
@@ -252,124 +267,181 @@ if(isset($_POST['email'])) {
 
             <div class="column-group gutters">
                <div class="xlarge-75 large-75 all-100">
+
                     <div class="quarter-top-space">
+                        <h2>Datos para hacer el depósito de la inscripción</h2>
+                        <p>Para recibir los pagos de inscripción, se tiene disponible la siguiente cuenta bancaria:</p>
+
+                        <p>
+                        Cta. Corriente Mercantil  </br>
+                        0105-0024-91-1024303888 </br>
+                        Corporación Parque Tecnológico Sartenejas </br>
+                        RIF: J-30343562-9 </br>
+                        </p>
+                        <p><strong>Solo se acepta depósito en efectivo o tranferencia electrónica.</strong></p>
+
+                        <h2>Formulario de inscripción</h2>
                         <p>Para realizar el proceso formal de inscripción, es necesario completar el siguiente
                         formulario:</p>
                     </div>
 
                     <form class="ink-form" id="planilla-registro" method="post" action="">
-                        <fieldset>
-                            <div class="control-group required">
-                                <label for="nombre_equipo">Nombre del equipo</label>
-                                <div class="control">
-                                    <input type="text" data-rules="required|text[true,false]" data-error="Nombre de equipo inválido" name="nombre_equipo" id="nombre-equipo">
+                        <section>
+                            <h2>Información de contacto</h2>
+                            <fieldset>
+                                <div class="control-group required">
+                                    <label for="nombre_equipo">Nombre del equipo</label>
+                                    <div class="control">
+                                        <input type="text" data-rules="required|text[true,false]" data-error="Nombre de equipo inválido" name="nombre_equipo" id="nombre-equipo">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group required">
-                                <label for="universidad">Universidad o centro que representa</label>
-                                <div class="control">
-                                    <input type="text" data-rules="text[true,false]" data-error="Nombre de Universidad o centro inválido" name="universidad" id="universidad-centro-rep">
+                                <div class="control-group required">
+                                    <label for="nombre_robot">Nombre del robot</label>
+                                    <div class="control">
+                                        <input type="text" data-rules="required|text[true,false]" data-error="Nombre de robot inválido" name="nombre_robot" id="nombre-robot">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group required">
-                                <label for="Categoría">Categoría a participar</label>
-                                <div class="control">
-                                    <select name="categoria" data-rules="required" data-error="Categoría inválida" >
-                                        <option value="">Seleccionar Categoría</option>
-                                        <option value="Velocista">Velocista</option>
-                                        <option value="Sumo">Sumo</option>
-                                        <option value="Laberinto">Laberinto</option>
-                                        <option value="Desafío">Desafío</option>
-                                    </select>
+                                <div class="control-group required">
+                                    <label for="universidad">Universidad o centro que representa</label>
+                                    <div class="control">
+                                        <input type="text" data-rules="required|text[true,false]" data-error="Nombre de universidad o centro inválido" name="universidad" id="universidad-centro-rep">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group required">
-                                <label for="comprobante-pago">Número de referencia de transacción bancaria</label>
-                                <div class="control">
-                                    <input type="text" data-rules="required|integer" data-error="Insertar número de comprobante (sólo números)" name="comprobante-pago" id="comprobante-pago">
+                                <div class="control-group required">
+                                    <label for="categoria">Categoría a participar</label>
+                                    <div class="control">
+                                        <select name="categoria" data-rules="required" data-error="Categoría inválida" >
+                                            <option value="">Seleccionar Categoría</option>
+                                            <option value="Velocista">Velocista</option>
+                                            <option value="Sumo">Sumo</option>
+                                            <option value="Laberinto">Laberinto</option>
+                                            <option value="Desafío">Desafío</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="control-group required">
-                                <label for="email">Email de contacto</label>
-                                <div class="control prepend-symbol">
-                                    <span>
-                                        <input type="text" data-rules="required|email" data-error="Insertar un correo válido" name="email" placeholder="email">
-                                        <i class="fa fa-envelope-o"></i>
-                                    </span>
+                                <div class="control-group required">
+                                    <label for="email">Email de contacto</label>
+                                    <div class="control prepend-symbol">
+                                        <span>
+                                            <input type="text" data-rules="required|email" data-error="Insertar un correo válido" name="email" placeholder="email">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group required">
-                                <label for="phone">Teléfono de contacto</label>
-                                <div class="control prepend-symbol">
-                                    <span>
-                                        <input type="text" data-rules="required" data-error="Insertar un número de teléfono válido" name="phone" id="phone">
-                                        <i class="fa fa-phone"></i>
-                                    </span>
+                                <div class="control-group required">
+                                    <label for="phone">Teléfono de contacto</label>
+                                    <div class="control prepend-symbol">
+                                        <span>
+                                            <input type="text" data-rules="required" data-error="Insertar un número de teléfono válido" name="phone" id="phone">
+                                            <i class="fa fa-phone"></i>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="column-group gutters">
-                                <div class="control-group all-50 required">
-                                    <label for="name1">Nombre participante</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="required|text[true,false]" data-error="Nombre inválido" name="name1" id="name1">
+                                <div class="column-group gutters">
+                                    <div class="control-group all-50 required">
+                                        <label for="name1">Nombre participante (capitán)</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="required|text[true,false]" data-error="Nombre inválido" name="name1" id="name1">
+                                        </div>
+                                    </div>
+                                    <div class="control-group all-50 required">
+                                        <label for="ID1">Cédula de Identidad</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="required|integer" data-error="Cédula inválida" name="ID1" id="ID1">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="control-group all-50 required">
-                                    <label for="ID1">Cédula de Identidad</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="required|integer" data-error="Cédula inválida" name="ID1" id="ID1">
+                                <div class="column-group gutters">
+                                    <div class="control-group all-50">
+                                        <label for="name2">Nombre participante</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="text[true,false]" data-error="Nombre inválido" name="name2" id="name2">
+                                        </div>
+                                    </div>
+                                    <div class="control-group all-50">
+                                        <label for="ID2">Cédula de Identidad</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="integer" data-error="Cédula inválida" name="ID2" id="ID2">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="column-group gutters">
-                                <div class="control-group all-50">
-                                    <label for="name2">Nombre participante</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="text[true,false]" data-error="Nombre inválido" name="name2" id="name2">
+                                <div class="column-group gutters">
+                                    <div class="control-group all-50">
+                                        <label for="name3">Nombre participante</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="text[true,false]" data-error="Nombre inválido" name="name3" id="name3">
+                                        </div>
+                                    </div>
+                                    <div class="control-group all-50">
+                                        <label for="ID3">Cédula de Identidad</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="integer" data-error="Cédula inválida" name="ID3" id="ID3">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="control-group all-50">
-                                    <label for="ID2">Cédula de Identidad</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="integer" data-error="Cédula inválida" name="ID2" id="ID2">
+                                <div class="column-group gutters">
+                                    <div class="control-group all-50">
+                                        <label for="name4">Nombre participante</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="text[true,false]" data-error="Nombre inválido" name="name4" id="name4">
+                                        </div>
+                                    </div>
+                                    <div class="control-group all-50">
+                                        <label for="ID4">Cédula de Identidad</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="integer" data-error="Cédula inválida" name="ID4" id="ID4">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="column-group gutters">
-                                <div class="control-group all-50">
-                                    <label for="name3">Nombre participante</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="text[true,false]" data-error="Nombre inválido" name="name3" id="name3">
-                                    </div>
-                                </div>
-                                <div class="control-group all-50">
-                                    <label for="ID3">Cédula de Identidad</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="integer" data-error="Cédula inválida" name="ID3" id="ID3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column-group gutters">
-                                <div class="control-group all-50">
-                                    <label for="name4">Nombre participante</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="text[true,false]" data-error="Nombre inválido" name="name4" id="name4">
-                                    </div>
-                                </div>
-                                <div class="control-group all-50">
-                                    <label for="ID4">Cédula de Identidad</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="integer" data-error="Cédula inválida" name="ID4" id="ID4">
-                                    </div>
-                                </div>
-                            </div>
+                            </fieldset>
+                        </section>
 
-                        </fieldset>
+                        <section>
+                            <h2> Información de pago</h2>
+
+                            <fieldset>
+                                <div class="control-group required">
+                                    <label for="comprobante-pago">Número de referencia de transacción bancaria</label>
+                                    <div class="control">
+                                        <input type="text" data-rules="required|integer" data-error="Insertar número de comprobante (sólo números)" name="comprobante-pago" id="comprobante-pago">
+                                    </div>
+                                </div>
+
+                                <div class="column-group gutters">
+                                    <div class="control-group all-50 required">
+                                        <label for="fecha-pago">Fecha en la que se realizó el pago</label>
+                                        <div class="control">
+                                            <input type="text"
+                                            class="ink-datepicker" data-format="d-m-Y"
+                                            data-rules="required"
+                                            data-css-class="ink-calendar my-never-closing-datepicker"
+                                            data-show-clean="false"
+                                            data-show-close="false"
+                                            name="fecha-pago" id="fecha-pago">
+                                        </div>
+                                    </div>
+                                    <div class="control-group all-50 required">
+                                        <label for="monto-pago">Monto del pago realizado</label>
+                                        <div class="control">
+                                            <input type="text" data-rules="required|integer" data-error="Monto inválido"
+                                            name="monto-pago" id="monto-pago">
+                                        </div>
+                                    </div>
+                                    <style>
+                                        .my-never-closing-datepicker {
+                                            position: static;
+                                            display: inline-block;
+                                            overflow: hidden;
+                                        }
+                                    </style>
+                                </div>
+                            </fieldset>
+                        </section>
                         <div>
                             <input type="submit" name="sub" value="Registrar" class="ink-button success" />
                         </div>
