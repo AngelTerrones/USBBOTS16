@@ -7,7 +7,7 @@ if(isset($_POST['email'])) {
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
     $mail->Host = "smtp.postmarkapp.com";
-    $mail->Port = 587;
+    $mail->Port = 2525;
     $mail->SMTPSecure = 'tls';
     $mail->Username = "4f033f73-497f-4de3-8070-964cbacf59e2";
     $mail->Password = "4f033f73-497f-4de3-8070-964cbacf59e2";
@@ -36,7 +36,7 @@ if(isset($_POST['email'])) {
     }
 
     $team_name = $_POST['nombre_equipo']; // required
-    $nombre_robot = $_POST['nombre_robot']; // required
+    $nombre_robot = $_POST['nombre_robot']; //
     $university_name = $_POST['universidad']; // not required
     $categoria = $_POST['categoria'];
     $email_to = $_POST['email']; // required
@@ -64,7 +64,9 @@ if(isset($_POST['email'])) {
     }
 
     $email_message .= "Información del equipo:<br />";
+    $email_message .= "----------------------<br />";
     $email_message .= "Nombre equipo: ".clean_string($team_name)."<br />";
+    $email_message .= "Nombre robot: ".clean_string($nombre_robot)."<br />";
     $email_message .= "Universidad/centro: ".clean_string($university_name)."<br />";
     $email_message .= "Email: ".clean_string($email_to)."<br />";
     $email_message .= "Teléfono: ".clean_string($telephone)."<br />";
@@ -81,7 +83,9 @@ if(isset($_POST['email'])) {
       $email_message .= "Participante 4: ".clean_string($member4_name)." Cédula: ".clean_string($member4_id)."<br />";
     }
 
-    $email_message .= "<br />Información de pago:<br />";
+    $email_message .= "<br />";
+    $email_message .= "Información de pago:<br />";
+    $email_message .= "-------------------<br />";
     $email_message .= "Comprobante de pago: ".clean_string($id_pago)."<br />";
     $email_message .= "Fecha de pago: ".clean_string($fecha_pago)."<br />";
     $email_message .= "Monto de pago: ".clean_string($monto_pago)."<br />";
