@@ -98,7 +98,7 @@
         }
         a:hover.back-to-top {
             background-color: #000;
-	}
+    }
     </style>
 </head>
 
@@ -115,9 +115,9 @@
     <div class="topbar large" id="main-nav">
         <nav class="ink-navigation ink-grid">
             <ul class="menu horizontal black push-center" id="main-nav-site">
-                <li class="heading active"><a href="index.html">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="categorias.html">Categorías</a></li>
-                <li><a>Participantes</a>
+                <li class="heading active"><a>Participantes</a>
                     <ul class="submenu">
                         <li><a href="informacion-general.html">Información General</a></li>
                         <li><a href="localizacion.html">Localización</a></li>
@@ -151,34 +151,43 @@
     <div class="ink-grid" id="post">
         <section class="top-padding vertical-padding clearfix">
             <h1 class="align-center half-bottom-space">
-                ¡Bienvenido a la VI Competencia Nacional de Robótica USBBOTS 2016!
+                Registro de participantes
             </h1>
 
             <div class="column-group gutters">
-                <div class="xlarge-75 large-75 all-100">
-                    <img src="img/toby.jpg" align="middle">
-                    <div class="quarter-top-space">
-                        <p>La competencia involucra a distintas áreas de conocimiento como: computación, informática, electrónica, mecánica, control, automatización y mecatrónica. Esta competencia se hace con la  participación de investigadores, estudiantes y aficionados.</p>
+               <?php
+                $success = $_GET['msg'];
+                if (isset($success)){
+                    $success = $_GET['msg'] == '1' ? true : false;
+                    if($success){
+                        ?>
+                            <div class="xlarge-75 large-75 all-100">
+                                <div class="quarter-top-space">
+                                    <p>¡Registro finalizado! Al correo indicado les llegará un mensaje de confirmación de que su solicitud ha sido recibida.</p>
+                                    <p>¡Nos vemos en Noviembre!</p>
+                                </div>
+                            </div>
+                        <?php
+                    }else{
+                        ?>
+                            <div class="xlarge-75 large-75 all-100">
+                                <div class="quarter-top-space">
+                                    <p>Ha ocurrido un error con el registro. Por favor, inténtelo más tarde, o contáctenos a <a href="mailto:USBBots2016@gmail.com">USBBots2016@gmail.com</a>.</p>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                }else{
+                    ?>
+                    <script language="javascript">
+                        <!-- code for my StatScript here -->
+                        window.location='registro.php';
+                    </script>
+                    <?php
+                }
+                ?>
 
-                        <p>Durante la competencia se desarrollarán exhibiciones de microrobots y robots de diferentes grupos a nivel nacional.</p>
 
-                        <p>Adicionalmente, durante el evento se desarrolla la reunión anual de la Asociación Venezolana de Robótica y Domótica AVEROD.</p>
-
-                        <p>USBBots se basa en competencias similares a las que se realizan en todo el mundo y pretende incentivar a estudiantes y aficionados a la construcción de robots para tareas específicas y compartir experiencias con grupos de diferentes universidades nacionales.</p>
-
-                        <p>De esta forma se estimula a estudiantes y profesionales a involucrarse en el área de la robótica que promueva un desarrollo nacional del área.</p>
-
-                        <p><h4>Objetivos:</h4></p>
-                        <ul>
-                            <li>Fomentar el desarrollo de la capacidad de abstracción y acercamiento al pensamiento lógico formal.</li>
-                            <li>Incentivar el trabajo en equipo.</li>
-                            <li>Generar espacios de discusión con respecto a las diversas soluciones posibles que presentan los desafíos en robótica.</li>
-                            <li>Estimular la vocación en los alumnos por la investigación y el desarrollo tecnológico.</li>
-                            <li>Lograr un punto de encuentro entre estudiantes, aficionados y profesionales al mundo de la robótica.</li>
-                            <li>Propiciar el intercambio de experiencias de grupos de robótica promoviendo la participación en proyectos conjuntos para resolver problemas específicos del ámbito nacional.</li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="xlarge-25 large-25 all-100 align-center">
                     <div id="tw-container">
                         <p class="align-center" id="twitter-tl">Twitter</p>

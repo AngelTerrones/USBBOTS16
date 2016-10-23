@@ -121,7 +121,8 @@
                     <ul class="submenu">
                         <li><a href="informacion-general.html">Información General</a></li>
                         <li><a href="localizacion.html">Localización</a></li>
-                        <li><a href="registro.php">Registro</a></li>
+                        <li><a href="registro.php">Registro participantes</a></li>
+                        <li><a href="registro_publico.php">Registro público general</a></li>
                         <li><a href="participantes.html">Lista de participantes</a></li>
                     </ul>
                 </li>
