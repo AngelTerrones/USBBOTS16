@@ -10,7 +10,7 @@ if(isset($_POST['email'])) {
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
     $mail->Username = "usbbots2016@gmail.com";
-    $mail->Password = "mecabots2016";
+    $mail->Password = "****";
 
     function died($error) {
         // your error code can go here
