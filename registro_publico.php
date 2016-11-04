@@ -10,7 +10,7 @@ if(isset($_POST['email'])) {
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
     $mail->Username = "usbbots2016@gmail.com";
-    $mail->Password = "********";
+    $mail->Password = "mecabots2016";
 
     function died($error) {
         // your error code can go here
@@ -32,6 +32,7 @@ if(isset($_POST['email'])) {
     }
 
     $person_name = $_POST['name']; //required
+    $ID = $_POST['ID']; // required
     $email_to = $_POST['email']; // required
     $telephone = $_POST['phone']; // required
 
@@ -48,6 +49,7 @@ if(isset($_POST['email'])) {
     $email_message .= "----------------------\n";
 
     $email_message .= "Nombre y apellidos: ".clean_string($person_name)."\n";
+    $email_message .= "Cédula de identidad: ".clean_string($ID)."\n";
     $email_message .= "Email: ".clean_string($email_to)."\n";
     $email_message .= "Teléfono: ".clean_string($telephone)."\n";
 
@@ -219,7 +221,7 @@ if(isset($_POST['email'])) {
                     </div>
                 </div>
                 <div class="xlarge-50 large-50 all-100 align-center push-center quarter-top-space">
-                    <h3> Caracas, 2-4 de Noviembre del 2016</h3>
+                    <h3> Caracas, 7-9 de Noviembre del 2016</h3>
                 </div>
             </div>
         </section>
@@ -236,7 +238,7 @@ if(isset($_POST['email'])) {
 
                     <div class="quarter-top-space">
                         <h2>Formulario de inscripción para asistencia al evento</h2>
-                        <p>Si deseas asistir al evento como público, es necesario que te registres. Para ello, solo necesitas llenar el siguiente formulario:</p>
+                        <p>Si deseas asistir al evento como público, es necesario que te registres. Para ello, solo necesitas llenar el siguiente formulario (fecha límite: viernes 4 de Noviembre, hasta las 2:00 pm):</p>
                     </div>
 
                     <form class="ink-form" id="planilla-registro" method="post" action="">
@@ -247,6 +249,12 @@ if(isset($_POST['email'])) {
                                     <label for="name">Nombre y Apellidos</label>
                                     <div class="control">
                                         <input type="text" data-rules="required|text[true,false]" data-error="Nombre inválido" name="name" id="name">
+                                    </div>
+                                </div>
+                                <div class="control-group required">
+                                    <label for="ID">Cédula de Identidad</label>
+                                    <div class="control">
+                                        <input type="text" data-rules="required|integer" data-error="Cédula inválida" name="ID" id="ID">
                                     </div>
                                 </div>
                                 <div class="control-group required">
