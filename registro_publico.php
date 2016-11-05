@@ -1,82 +1,3 @@
-<?php
-if(isset($_POST['email'])) {
-    require 'PHPMailerAutoload.php';
-
-    $mail = new PHPMailer();
-    $mail->CharSet = 'UTF-8';
-    $mail->IsSMTP();
-    $mail->SMTPAuth = true;
-    $mail->Host = "smtp.gmail.com";
-    $mail->Port = 587;
-    $mail->SMTPSecure = 'tls';
-    $mail->Username = "usbbots2016@gmail.com";
-    $mail->Password = "****";
-
-    function died($error) {
-        // your error code can go here
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.\n\n";
-        echo $error."\n\n";
-        echo "Please go back and fix these errors.\n\n";
-        die();
-    }
-
-    // validation expected data exists
-
-    if(!isset($_POST['name']) ||
-     //!isset($_POST['ID1']) ||
-        !isset($_POST['email']) ||
-        !isset($_POST['phone'])) {
-
-        died('We are sorry, but there appears to be a problem with the form you submitted.');
-    }
-
-    $person_name = $_POST['name']; //required
-    $ID = $_POST['ID']; // required
-    $email_to = $_POST['email']; // required
-    $telephone = $_POST['phone']; // required
-
-    $email_message = "**Mensaje generado en forma automática.**\n\n";
-    $email_message .= "Gracias por participar en la VI Competencia Nacional de Robótica.\n";
-    $email_message .= "Su solicitud para asistir al evento ha sido registrada.\n\n";
-
-    function clean_string($string) {
-      $bad = array("content-type","bcc:","to:","cc:","href");
-      return str_replace($bad,"",$string);
-    }
-
-    $email_message .= "Información del equipo:\n";
-    $email_message .= "----------------------\n";
-
-    $email_message .= "Nombre y apellidos: ".clean_string($person_name)."\n";
-    $email_message .= "Cédula de identidad: ".clean_string($ID)."\n";
-    $email_message .= "Email: ".clean_string($email_to)."\n";
-    $email_message .= "Teléfono: ".clean_string($telephone)."\n";
-
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_from = "usbbots2016@gmail.com";
-
-    $mail->setFrom($email_from, "VI Competencia Nacional de Robótica USBBots");
-    $mail->addReplyTo($email_from, "VI Competencia Nacional de Robótica USBBots");
-    $mail->addAddress($email_to);
-    $mail->addBCC($email_from);
-    //$mail->addBCC($email_from);
-
-    $mail->Subject = "Registro Público General USBBots 2016";
-    $mail->Body = $email_message;
-    //$mail->AltBody = $email_message;
-    $mail->isHTML(false);
-
-    if($mail->Send()){
-      $success = true;
-    }else{
-      $success = $mail->ErrorInfo;
-    }
-
-    header('Location:registro_publico_fin.php?msg='.$success);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es-es">
 
@@ -237,55 +158,10 @@ if(isset($_POST['email'])) {
                <div class="xlarge-75 large-75 all-100">
 
                     <div class="quarter-top-space">
-                        <h2>Formulario de inscripción para asistencia al evento</h2>
-                        <p>Si deseas asistir al evento como público, es necesario que te registres. Para ello, solo necesitas llenar el siguiente formulario (fecha límite: viernes 4 de Noviembre, hasta las 2:00 pm):</p>
+                        <h2>El proceso de registro ha finalizado</h2>
+                        <p>El proceso de inscripción para el evento finalizó el 4 de Noviembre.</p>
+                        <p>¡Gracias por participar!</p>
                     </div>
-
-                    <form class="ink-form" id="planilla-registro" method="post" action="">
-                        <section>
-                            <h2>Información de contacto</h2>
-                            <fieldset>
-                                <div class="control-group required">
-                                    <label for="name">Nombre y Apellidos</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="required|text[true,false]" data-error="Nombre inválido" name="name" id="name">
-                                    </div>
-                                </div>
-                                <div class="control-group required">
-                                    <label for="ID">Cédula de Identidad</label>
-                                    <div class="control">
-                                        <input type="text" data-rules="required|integer" data-error="Cédula inválida" name="ID" id="ID">
-                                    </div>
-                                </div>
-                                <div class="control-group required">
-                                    <label for="email">Email de contacto (para enviar mensaje de confirmación)</label>
-                                    <div class="control prepend-symbol">
-                                        <span>
-                                            <input type="text" data-rules="required|email" data-error="Insertar un correo válido" name="email" id="email">
-                                            <i class="fa fa-envelope-o"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="control-group required">
-                                    <label for="phone">Teléfono de contacto</label>
-                                    <div class="control prepend-symbol">
-                                        <span>
-                                            <input type="text" data-rules="required" data-error="Insertar un número de teléfono válido" name="phone" id="phone">
-                                            <i class="fa fa-phone"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </section>
-                        <div>
-                            <input type="submit" name="sub" value="Registrar" class="ink-button success" />
-                        </div>
-                    </form>
-                    <script>
-                        Ink.requireModules( ['Ink.UI.FormValidator_2', 'Ink.Dom.Selector_1'], function( FormValidator, Selector ){
-                            var myValidator = new FormValidator( '#planilla-registro');
-                        });
-                    </script>
                 </div>
 
                 <div class="xlarge-25 large-25 all-100 align-center">
